@@ -10,5 +10,5 @@ def login():
     st.write("password = p1")
     enterusername = st.text_input("please enter username to update system")
     enterpassword = st.text_input("please enter password", type="password")
-    if st.button("check user")
+    if st.button("check user"):
 login()
