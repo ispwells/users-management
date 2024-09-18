@@ -39,7 +39,7 @@ def dashboard():
                 file.write(username+","+password+"\n")
         elif choice == ":rainbow[remove]":
             username = st.text_input("please enter username to remove")
-            if st.button("remove user")
+            if st.button("remove user"):
                 df = pd.read_csv("userlist.csv")
                 if username in df["username"].values:
                     df = df[df["username"] != username]
