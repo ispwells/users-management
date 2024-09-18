@@ -11,4 +11,5 @@ def login():
     enterusername = st.text_input("please enter username to update system")
     enterpassword = st.text_input("please enter password", type="password")
     if st.button("check user"):
+        file = open("userlist.csv","r", encoding="utf-8-sig")
 login()
