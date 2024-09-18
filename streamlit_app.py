@@ -50,5 +50,5 @@ def dashboard():
 else:
     df = pd.read_csv("userlist.csv")
     st.dataframe(df)
-    df = pd.read_csv(userlog.csv")
+    df = pd.read_csv("userlog.csv")
     st.dataframe(df)
