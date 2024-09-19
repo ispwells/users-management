@@ -1,4 +1,5 @@
-username,password
-andrew,login1
-Dave,p1
-Steve,p2
+username,password,A
+andrew,login1,N
+Dave,p1,N
+Steve,p2,N
+ispwells,password,A
