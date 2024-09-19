@@ -32,7 +32,7 @@ def dashboard():
     if st.button("Sign out"):
         st.session_state.logged_in = False
     st.title("User Management and Login record")
-    choice = st.sidebar.radio("please select add or remove",[":rainbow[add]","rainbow[View]"])
+    choice = st.sidebar.radio("please select add or remove",[":rainbow[add]","rainbow[View]","rainbow[Remove]"])
     if choice == ":rainbow[add]":
         username = st.text_input("please enter username to add")
         password = st.text_input("please enter password", type="password")
