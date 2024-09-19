@@ -33,13 +33,18 @@ def dashboard():
         st.session_state.logged_in = False
     st.title("User Management and Login record")
     choice = st.sidebar.radio("please select add or remove",[":rainbow[add]",":rainbow[Remove]",":rainbow[View]"])
+    file.open("userlist.csv","r", encoding="utf-8-sig")
+    for line in file:
+        lines = line.strip().(",")
+        admin = lines[2]
+  
     if choice == ":rainbow[add]":
         username = st.text_input("please enter username to add")
         password = st.text_input("please enter password", type="password")
         if st.button("add user"):
             with open("userlist.csv","a", newline='') as file:
-                file.write(username+","+password+"\n")
-    elif choice == ":rainbow[Remove]":
+                file.write(username+","+password+","+"a""\n")
+    elif choice == ":rainbow[Remove]" and admin != "A" :
         username = st.text_input("please enter username to remove")
         if st.button("remove user"):
             df = pd.read_csv("userlist.csv")
