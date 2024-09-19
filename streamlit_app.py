@@ -47,8 +47,14 @@ def dashboard():
                     st.succes(f"user {username} removed successfully.")
         else:
             st.error(f"username {username} not found in the data")
+    else:
+        df = pd.read_csv("userlist.csv")
+        st.dataframe(df)
+        df = pd.read_csv("userlog.csv")
+        st.dataframe(df)
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in=False
+if st.session_state.logged_in:
+    dashboard()
 else:
-    df = pd.read_csv("userlist.csv")
-    st.dataframe(df)
-    df = pd.read_csv("userlog.csv")
-    st.dataframe(df)
+    login()
