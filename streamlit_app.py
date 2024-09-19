@@ -18,10 +18,12 @@ def login():
             username = lines[0]
             password = lines[1]
             if enterusername == username and enterpassword == password:
-                st.session_state.logged_in = True
-                st.success("login successful")
-                user_found = True
-                break
+                with open("userlog.csv","a",newline='') as file:
+                    file.write(username+","+ str(datetime.datetime.now().replace(microsecond=0))+"\n")
+                    st.session_state.logged_in = True
+                    st.success("login successful")
+                    user_found = True
+                    break
         if not user_found:
             st.error("invalid username or password")
         file.close()
