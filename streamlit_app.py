@@ -39,14 +39,14 @@ def dashboard():
         if st.button("add user"):
             with open("userlist.csv","a", newline='') as file:
                 file.write(username+","+password+"\n")
-        elif choice == ":rainbow[remove]":
-            username = st.text_input("please enter username to remove")
-            if st.button("remove user"):
-                df = pd.read_csv("userlist.csv")
-                if username in df["username"].values:
-                    df = df[df["username"] != username]
-                    df.to_csv("userlist.csv", index=False)
-                    st.succes(f"user {username} removed successfully.")
+    elif choice == ":rainbow[remove]":
+        username = st.text_input("please enter username to remove")
+        if st.button("remove user"):
+            df = pd.read_csv("userlist.csv")
+            if username in df["username"].values:
+                df = df[df["username"] != username]
+                df.to_csv("userlist.csv", index=False)
+                st.succes(f"user {username} removed successfully.")
         else:
             st.error(f"username {username} not found in the data")
     else:
