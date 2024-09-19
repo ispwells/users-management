@@ -33,7 +33,7 @@ def dashboard():
     choice = st.sidebar.radio("please select add or remove",[":rainbow[add]","rainbow[View]"])
     if choice == ":rainbow[add]":
         username = st.text_input("please enter username to add")
-        pssword = st.text_input("please enter password", type="password")
+        password = st.text_input("please enter password", type="password")
         if st.button("add user"):
             with open("userlist.csv","a", newline='') as file:
                 file.write(username+","+password+"\n")
