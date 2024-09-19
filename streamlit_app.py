@@ -35,7 +35,7 @@ def dashboard():
     choice = st.sidebar.radio("please select add or remove",[":rainbow[add]",":rainbow[Remove]",":rainbow[View]"])
     file.open("userlist.csv","r", encoding="utf-8-sig")
     for line in file:
-        lines = line.strip().(",")
+        lines = line.strip().split(",")
         admin = lines[2]
   
     if choice == ":rainbow[add]":
