@@ -12,7 +12,7 @@ def login():
     enterpassword = st.text_input("please enter password", type="password")
     if st.button("check user"):
         file = open("userlist.csv","r", encoding="utf-8-sig")
-        #user_found = False
+        user_found = False
         for line in file:
             lines = line.strip().split(",")
             username = lines[0]
@@ -22,11 +22,11 @@ def login():
                     file.write(username+","+ str(datetime.datetime.now().replace(microsecond=0))+"\n")
                     st.session_state.logged_in = True
                     st.success("login successful")
-                    #user_found = True
+                    user_found = True
                     break
-        #if not user_found:
-            #st.error("invalid username or password")
-        #file.close()
+        if not user_found:
+            st.error("invalid username or password")
+        file.close()
 def dashboard():
     st.write("welcome admin")
     if st.button("Sign out"):
