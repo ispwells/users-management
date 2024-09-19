@@ -46,7 +46,7 @@ def dashboard():
             if username in df["username"].values:
                 df = df[df["username"] != username]
                 df.to_csv("userlist.csv", index=False)
-                st.succes(f"user {username} removed successfully.")
+                st.success(f"user {username} removed successfully.")
         else:
             st.error(f"username {username} not found in the data")
     else:
