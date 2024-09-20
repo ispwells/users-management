@@ -1,20 +1,7 @@
 import streamlit as st
 import pandas as pd
 import datetime
-def remove():
-    username = st.text_input("please enter username to remove")
-    file.open("userlist.csv","r", encoding="utf-8-sig")
-    for line in file:
-        lines = line.strip().split(",")
-        admin = lines[2]
-        if st.button("remove user") and admin != "A":
-            df = pd.read_csv("userlist.csv")
-            if username in df["username"].values:
-                df = df[df["username"] != username]
-                df.to_csv("userlist.csv", index=False)
-                st.success(f"user {username} removed successfully.")
-        else:
-            st.error(f"username {username} not found in the data")
+
     
 def login():
     st.title("login")
@@ -57,13 +44,21 @@ def dashboard():
                 file.write(username+","+password+","+"N""\n")
                 file.close
     elif choice == ":rainbow[Remove]":
-        remove()
-        
-    else:
-        df = pd.read_csv("userlist.csv")
-        st.dataframe(df)
-        df = pd.read_csv("userlog.csv")
-        st.dataframe(df)
+
+        username = st.text_input("please enter username to remove")
+        if st.button("remove user"):
+            df = pd.read_csv("userlist.csv")
+            if username in df["username"].values:
+                df = df[df["username"] != username]
+                df.to_csv("userlist.csv", index=False)
+                 st.success(f"user {username} removed successfully.")
+            else:
+                st.error(f"username {username} not found in the data")
+        else:
+            df = pd.read_csv("userlist.csv")
+            st.dataframe(df)
+            df = pd.read_csv("userlog.csv")
+            st.dataframe(df)
 if "logged_in" not in st.session_state:
     st.session_state.logged_in=False
 if st.session_state.logged_in:
